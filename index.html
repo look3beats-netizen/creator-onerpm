@@ -1068,4 +1068,12 @@ function drawArchArrows() {
 window.addEventListener('load', () => {
   document.querySelectorAll('#hero .reveal').forEach(el => {
     const d = parseInt(el.className.match(/delay-(\d)/)?.[1] || 0) * 130;
-    setTimeout(() => el.classList.add('visible'), 280 +
+    setTimeout(() => el.classList.add('visible'), 280 + d);
+  });
+  typewrite();
+  drawArchArrows();
+  window.addEventListener('resize', drawArchArrows);
+});
+</script>
+</body>
+</html>
