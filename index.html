@@ -505,9 +505,125 @@ h2 { font-size: clamp(2rem, 4.5vw, 3.5rem); margin-bottom: 48px; }
 .reveal-delay-2 { transition-delay: 0.21s; }
 .reveal-delay-3 { transition-delay: 0.34s; }
 
+/* ── MOBILE SECTION ── */
+.mobile-feature-row {
+  display: flex; align-items: center; gap: 14px;
+  padding: 14px 18px;
+  background: var(--bg-card);
+  border: 1px solid var(--divider);
+  border-radius: 12px;
+  transition: border-color 0.25s, transform 0.25s;
+}
+.mobile-feature-row:hover {
+  border-color: var(--accent-mid);
+  transform: translateX(4px);
+}
+.mobile-feature-row.green-row:hover { border-color: rgba(46,232,160,0.3); }
+.mfr-icon {
+  width: 36px; height: 36px; flex-shrink: 0;
+  background: var(--accent-soft); border-radius: 9px;
+  display: flex; align-items: center; justify-content: center; font-size: 1rem;
+  transition: transform 0.25s;
+}
+.mobile-feature-row:hover .mfr-icon { transform: scale(1.12) rotate(-4deg); }
+.mfr-icon.green-icon { background: var(--green-soft); }
+.mfr-title { font-family: var(--font-head); font-weight: 700; font-size: 0.88rem; margin-bottom: 3px; }
+.mfr-sub { font-size: 0.76rem; color: var(--muted); font-weight: 300; }
+
+/* Phone mockup */
+.phone-wrap { position: relative; width: 230px; }
+.phone-glow {
+  position: absolute; inset: -50px;
+  background: radial-gradient(circle, rgba(91,110,250,0.14) 0%, transparent 70%);
+  pointer-events: none;
+}
+.phone-shell {
+  background: #08090F;
+  border: 2px solid rgba(255,255,255,0.09);
+  border-radius: 38px;
+  padding: 12px;
+  box-shadow: 0 32px 80px rgba(0,0,0,0.65), 0 0 0 1px rgba(91,110,250,0.12);
+  position: relative;
+  animation: phonefloat 4s ease-in-out infinite;
+}
+@keyframes phonefloat {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+.phone-notch {
+  width: 68px; height: 18px;
+  background: #08090F;
+  border-radius: 0 0 12px 12px;
+  margin: 0 auto 10px;
+  border: 1.5px solid rgba(255,255,255,0.05);
+  border-top: none;
+  display: flex; align-items: center; justify-content: center;
+}
+.phone-camera {
+  width: 5px; height: 5px;
+  background: rgba(255,255,255,0.12); border-radius: 50%;
+}
+.phone-screen {
+  background: var(--bg-card);
+  border-radius: 24px;
+  padding: 14px;
+  min-height: 400px;
+}
+.app-header {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 14px;
+}
+.app-logo { font-family: var(--font-head); font-weight: 800; font-size: 0.82rem; }
+.app-avatar {
+  width: 24px; height: 24px;
+  background: var(--accent-soft); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center; font-size: 0.55rem;
+}
+.app-upload-zone {
+  border: 1.5px dashed rgba(91,110,250,0.35);
+  border-radius: 13px; padding: 16px 10px;
+  text-align: center; margin-bottom: 10px;
+  background: var(--accent-soft);
+}
+.app-upload-label {
+  font-size: 0.6rem; font-family: var(--font-head);
+  font-weight: 700; color: var(--accent); margin-bottom: 3px;
+}
+.app-upload-sub { font-size: 0.52rem; color: var(--muted); }
+.app-field {
+  background: var(--bg-card2); border-radius: 9px;
+  padding: 8px 10px; margin-bottom: 7px;
+  border: 1px solid var(--divider);
+}
+.app-field-label {
+  font-size: 0.48rem; color: var(--muted);
+  font-family: var(--font-head); font-weight: 700;
+  letter-spacing: 0.1em; margin-bottom: 3px;
+}
+.app-field-val { font-size: 0.68rem; color: var(--off-white); }
+.app-cover-thumb {
+  width: 100%; aspect-ratio: 1;
+  background: linear-gradient(135deg, rgba(91,110,250,0.3), rgba(46,232,160,0.2));
+  border-radius: 6px; margin-top: 4px;
+  display: flex; align-items: center; justify-content: center; font-size: 0.95rem;
+}
+.app-submit-btn {
+  background: var(--accent); border-radius: 10px; padding: 10px;
+  text-align: center; font-family: var(--font-head); font-weight: 700;
+  font-size: 0.66rem; color: white;
+  box-shadow: 0 4px 20px rgba(91,110,250,0.4);
+  animation: btnpulse 3s ease-in-out infinite;
+}
+@keyframes btnpulse {
+  0%,100% { box-shadow: 0 4px 20px rgba(91,110,250,0.4); }
+  50% { box-shadow: 0 4px 36px rgba(91,110,250,0.7); }
+}
+
 /* ── RESPONSIVE ── */
 @media (max-width: 900px) {
-  #hero { grid-template-columns: 1fr; padding: 90px 28px 60px; }
+  #mobile > div { grid-template-columns: 1fr; }
+  .phone-wrap { width: 200px; margin: 0 auto; }
+   padding: 90px 28px 60px; }
   section { padding: 90px 28px 60px; }
   .cards-3, .cards-4, .arch-flow, .timeline { grid-template-columns: 1fr; }
   .cards-2 { grid-template-columns: 1fr; }
@@ -527,7 +643,7 @@ h2 { font-size: clamp(2rem, 4.5vw, 3.5rem); margin-bottom: 48px; }
 <canvas id="particles-canvas"></canvas>
 <div class="cursor" id="cursor"></div>
 <div class="cursor-ring" id="cursor-ring"></div>
-<div class="section-counter"><span class="current" id="counter-current">01</span>&nbsp;/&nbsp;08</div>
+<div class="section-counter"><span class="current" id="counter-current">01</span>&nbsp;/&nbsp;09</div>
 
 <!-- NAV -->
 <nav>
@@ -541,6 +657,7 @@ h2 { font-size: clamp(2rem, 4.5vw, 3.5rem); margin-bottom: 48px; }
     <div class="nav-dot" onclick="scrollToSection(5)"></div>
     <div class="nav-dot" onclick="scrollToSection(6)"></div>
     <div class="nav-dot" onclick="scrollToSection(7)"></div>
+    <div class="nav-dot" onclick="scrollToSection(8)"></div>
   </div>
 </nav>
 
@@ -552,7 +669,7 @@ h2 { font-size: clamp(2rem, 4.5vw, 3.5rem); margin-bottom: 48px; }
   <div class="hero-left">
     <div class="hero-eyebrow reveal">
       <div class="hero-eyebrow-dot"></div>
-      Встреча с руководством · Март 2026
+      Контакт с руководством · Март 2026
     </div>
     <h1 class="hero-title reveal reveal-delay-1">
       <span id="typewriter-text"></span><span class="typewriter-cursor" id="tw-cursor"></span>
@@ -561,7 +678,7 @@ h2 { font-size: clamp(2rem, 4.5vw, 3.5rem); margin-bottom: 48px; }
       Интеграция API для автоматизированной дистрибуции музыки независимых артистов на все стриминговые платформы.
     </p>
     <div class="hero-meta reveal reveal-delay-3">
-      <span>Москва</span>
+      <span>Челябинск × Москва</span>
       <div class="hero-meta-divider"></div>
       <span>Март 2026</span>
       <div class="hero-meta-divider"></div>
@@ -625,10 +742,76 @@ h2 { font-size: clamp(2rem, 4.5vw, 3.5rem); margin-bottom: 48px; }
   </div>
 </section>
 
-<!-- ══ SLIDE 4: АРХИТЕКТУРА ══ -->
+<!-- ══ SLIDE 4: МОБИЛЬНЫЙ РЕЛИЗ ══ -->
+<section id="mobile">
+  <div class="section-grid-bg"></div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:72px;position:relative;z-index:2;">
+    <div>
+      <div class="section-label reveal">03 — Мобильный релиз</div>
+      <h2 class="reveal reveal-delay-1" style="margin-bottom:24px;">Загрузить релиз<br>прямо с телефона.</h2>
+      <p class="reveal reveal-delay-2" style="font-size:1rem;color:var(--muted);line-height:1.75;font-weight:300;margin-bottom:36px;max-width:420px;">
+        creator полностью адаптирован под мобильные устройства. Артист загружает трек, обложку и метаданные — не открывая ноутбук.
+      </p>
+      <div class="reveal reveal-delay-3" style="display:flex;flex-direction:column;gap:12px;">
+        <div class="mobile-feature-row">
+          <div class="mfr-icon">📱</div>
+          <div><div class="mfr-title">Полностью адаптивный интерфейс</div><div class="mfr-sub">iOS и Android — без установки приложения</div></div>
+        </div>
+        <div class="mobile-feature-row">
+          <div class="mfr-icon">🎵</div>
+          <div><div class="mfr-title">Загрузка аудио и обложки</div><div class="mfr-sub">Прямо из галереи или файлов телефона</div></div>
+        </div>
+        <div class="mobile-feature-row">
+          <div class="mfr-icon">📊</div>
+          <div><div class="mfr-title">Дашборд и статусы на ходу</div><div class="mfr-sub">Артист видит прогресс релиза в реальном времени</div></div>
+        </div>
+        <div class="mobile-feature-row green-row">
+          <div class="mfr-icon green-icon">⚡</div>
+          <div><div class="mfr-title" style="color:var(--green)">0 барьеров для артиста</div><div class="mfr-sub">Записал трек — сразу отправил на дистрибуцию</div></div>
+        </div>
+      </div>
+    </div>
+    <!-- Phone mockup -->
+    <div class="reveal reveal-delay-2" style="display:flex;justify-content:center;">
+      <div class="phone-wrap">
+        <div class="phone-glow"></div>
+        <div class="phone-shell">
+          <div class="phone-notch"><div class="phone-camera"></div></div>
+          <div class="phone-screen">
+            <div class="app-header">
+              <span class="app-logo">creator</span>
+              <div class="app-avatar">👤</div>
+            </div>
+            <div class="app-upload-zone">
+              <div style="font-size:1.5rem;margin-bottom:6px;">🎵</div>
+              <div class="app-upload-label">Загрузить трек</div>
+              <div class="app-upload-sub">WAV · M4A · MP3</div>
+            </div>
+            <div class="app-field"><div class="app-field-label">НАЗВАНИЕ</div><div class="app-field-val">Новый трек</div></div>
+            <div class="app-field"><div class="app-field-label">ИСПОЛНИТЕЛЬ</div><div class="app-field-val">Имя артиста</div></div>
+            <div style="display:flex;gap:8px;margin-bottom:10px;">
+              <div class="app-field" style="flex:1">
+                <div class="app-field-label">ОБЛОЖКА</div>
+                <div class="app-cover-thumb">🎨</div>
+              </div>
+              <div class="app-field" style="flex:1">
+                <div class="app-field-label">ДАТА</div>
+                <div class="app-field-val" style="font-size:0.65rem;">15 апр 2026</div>
+                <div style="font-size:0.5rem;color:var(--green);margin-top:3px;">pre-save ✓</div>
+              </div>
+            </div>
+            <div class="app-submit-btn">Отправить на дистрибуцию →</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SLIDE 5: АРХИТЕКТУРА ══ -->
 <section id="arch">
   <div class="section-grid-bg"></div>
-  <div class="section-label reveal">03 — Архитектура интеграции</div>
+  <div class="section-label reveal">04 — Архитектура интеграции</div>
   <h2 class="reveal reveal-delay-1">Один API-запрос —<br>релиз на всех платформах.</h2>
   <div class="arch-flow reveal reveal-delay-2" id="arch-flow">
     <div class="arch-node">
@@ -661,7 +844,7 @@ h2 { font-size: clamp(2rem, 4.5vw, 3.5rem); margin-bottom: 48px; }
 <!-- ══ SLIDE 5: ЗАЧЕМ API ══ -->
 <section id="why">
   <div class="section-grid-bg"></div>
-  <div class="section-label reveal">04 — Зачем нам API</div>
+  <div class="section-label reveal">05 — Зачем нам API</div>
   <h2 class="reveal reveal-delay-1">Ручная загрузка — не масштабируется.<br>API — единственный путь.</h2>
   <div class="cards-4 reveal reveal-delay-2">
     <div class="card"><div class="card-icon">⚡</div><div class="card-title">Скорость</div><div class="card-text">Ручная загрузка — ~30 минут. С API — ~30 секунд. В первый месяц ожидается 20–25 релизов в день.</div></div>
@@ -674,7 +857,7 @@ h2 { font-size: clamp(2rem, 4.5vw, 3.5rem); margin-bottom: 48px; }
 <!-- ══ SLIDE 6: ЗАПРОС ══ -->
 <section id="request">
   <div class="section-grid-bg"></div>
-  <div class="section-label reveal">05 — Запрос</div>
+  <div class="section-label reveal">06 — Запрос</div>
   <h2 class="reveal reveal-delay-1">Что мы запрашиваем<br>на этой встрече.</h2>
   <div class="request-list reveal reveal-delay-2">
     <div class="request-item"><div class="request-num">01</div><div class="request-icon">🔑</div><div><div class="request-title">API-ключи (production)</div><div class="request-desc">Credentials для prod-окружения. Sandbox у нас уже есть — готовы к production.</div></div></div>
@@ -687,7 +870,7 @@ h2 { font-size: clamp(2rem, 4.5vw, 3.5rem); margin-bottom: 48px; }
 <!-- ══ SLIDE 7: ВЫГОДА ══ -->
 <section id="benefits">
   <div class="section-grid-bg"></div>
-  <div class="section-label reveal" style="color:var(--green)">06 — Выгода для OneRPM</div>
+  <div class="section-label reveal" style="color:var(--green)">07 — Выгода для OneRPM</div>
   <h2 class="reveal reveal-delay-1">Новый канал. Новые артисты.<br><span style="color:var(--green)">Автоматизированный поток контента.</span></h2>
   <div class="cards-4 reveal reveal-delay-2">
     <div class="card card-green"><div class="card-accent-side"></div><div class="card-icon green">👤</div><div class="card-title">Новые артисты</div><div class="card-text">creator становится каналом привлечения независимых артистов на платформу OneRPM.</div></div>
@@ -700,7 +883,7 @@ h2 { font-size: clamp(2rem, 4.5vw, 3.5rem); margin-bottom: 48px; }
 <!-- ══ SLIDE 8: СЛЕДУЮЩИЕ ШАГИ ══ -->
 <section id="steps">
   <div class="section-grid-bg"></div>
-  <div class="section-label reveal">07 — Следующие шаги</div>
+  <div class="section-label reveal">08 — Следующие шаги</div>
   <h2 class="reveal reveal-delay-1">От встречи до запуска —<br>4 недели.</h2>
   <div class="timeline reveal reveal-delay-2">
     <div class="tl-step"><div class="tl-circle active">01</div><div class="tl-time">Сегодня</div><div class="tl-title">Договориться</div><div class="tl-desc">Зафиксировать договорённость об API-доступе на встрече</div></div>
@@ -713,13 +896,13 @@ h2 { font-size: clamp(2rem, 4.5vw, 3.5rem); margin-bottom: 48px; }
     <span class="contact-sep">·</span>
     <a href="tel:+79193531716">+7 919 353-17-16</a>
     <span class="contact-sep">·</span>
-    <a href="mailto:look3betz&#64;gmail&#46;com">look3betz&#64;gmail&#46;com</a>
+    <a href="/cdn-cgi/l/email-protection#f995969692ca9b9c8d83dfdacfcdc29e94989095dfdacdcfc29a9694">look3betz&#64;gmail&#46;com</a>
     <span class="contact-sep">·</span>
     <a href="https://creatormusic.ru" target="_blank">creatormusic.ru</a>
   </div>
 </section>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // ── Particles ──────────────────────────────────────────────────────────────
 const canvas = document.getElementById('particles-canvas');
 const ctx = canvas.getContext('2d');
@@ -885,12 +1068,4 @@ function drawArchArrows() {
 window.addEventListener('load', () => {
   document.querySelectorAll('#hero .reveal').forEach(el => {
     const d = parseInt(el.className.match(/delay-(\d)/)?.[1] || 0) * 130;
-    setTimeout(() => el.classList.add('visible'), 280 + d);
-  });
-  setTimeout(typewrite, 500);
-  setTimeout(drawArchArrows, 600);
-  window.addEventListener('resize', drawArchArrows);
-});
-</script>
-</body>
-</html>
+    setTimeout(() => el.classList.add('visible'), 280 +
