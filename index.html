@@ -621,6 +621,7 @@ h2 { font-size: clamp(2rem, 4.5vw, 3.5rem); margin-bottom: 48px; }
 
 /* ── RESPONSIVE ── */
 @media (max-width: 900px) {
+  #hero { grid-template-columns: 1fr; padding: 90px 28px 60px; }
   #mobile > div { grid-template-columns: 1fr; }
   .phone-wrap { width: 200px; margin: 0 auto; }
   section { padding: 90px 28px 60px; }
@@ -1069,8 +1070,8 @@ window.addEventListener('load', () => {
     const d = parseInt(el.className.match(/delay-(\d)/)?.[1] || 0) * 130;
     setTimeout(() => el.classList.add('visible'), 280 + d);
   });
-  typewrite();
-  drawArchArrows();
+  setTimeout(typewrite, 500);
+  setTimeout(drawArchArrows, 600);
   window.addEventListener('resize', drawArchArrows);
 });
 </script>
