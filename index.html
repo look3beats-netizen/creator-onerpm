@@ -6,7 +6,7 @@
 <title>creator × OneRPM</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Syne:wght@700;800&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -24,7 +24,7 @@
     --muted: #6B7399;
     --divider: rgba(255,255,255,0.06);
     --font-head: 'Syne', sans-serif;
-    --font-body: 'DM Sans', sans-serif;
+    --font-body: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', 'Inter', sans-serif;
   }
 
   html { scroll-behavior: smooth; }
@@ -98,13 +98,7 @@
     transition: background 0.2s, transform 0.2s;
   }
   .nav-dot.active { background: var(--accent); transform: scale(1.5); }
-  .nav-badge {
-    font-size: 0.65rem; font-family: var(--font-head);
-    font-weight: 700; letter-spacing: 0.12em;
-    color: var(--accent); border: 1px solid var(--accent-mid);
-    padding: 4px 10px; border-radius: 20px;
-    background: var(--accent-soft);
-  }
+
 
   /* ── SECTIONS ── */
   section {
@@ -523,9 +517,8 @@
     <div class="nav-dot" onclick="scrollToSection(5)"></div>
     <div class="nav-dot" onclick="scrollToSection(6)"></div>
     <div class="nav-dot" onclick="scrollToSection(7)"></div>
-    <div class="nav-dot" onclick="scrollToSection(8)"></div>
   </div>
-  <div class="nav-badge">КОНФИДЕНЦИАЛЬНО</div>
+
 </nav>
 
 <!-- ══ SLIDE 1: HERO ══ -->
@@ -700,33 +693,6 @@
   </div>
 </section>
 
-<!-- ══ SLIDE 5: РЫНОК ══ -->
-<section id="market">
-  <div class="section-grid-bg"></div>
-  <div class="section-label reveal">04 — Рынок</div>
-  <h2 class="reveal reveal-delay-1">Независимый рынок<br>музыки растёт быстрее лейблов.</h2>
-  <div class="cards-3 reveal reveal-delay-2">
-    <div class="card stat-card">
-      <div class="card-accent-bar"></div>
-      <div class="stat-num">60%</div>
-      <div class="stat-label">музыки загружается независимыми артистами</div>
-      <div class="stat-source">DSP global data</div>
-    </div>
-    <div class="card stat-card">
-      <div class="card-accent-bar"></div>
-      <div class="stat-num">11M+</div>
-      <div class="stat-label">независимых артистов по всему миру</div>
-      <div class="stat-source">по данным отрасли</div>
-    </div>
-    <div class="card stat-card">
-      <div class="card-accent-bar"></div>
-      <div class="stat-num">×3</div>
-      <div class="stat-label">рост рынка за последние 5 лет</div>
-      <div class="stat-source">IFPI 2024</div>
-    </div>
-  </div>
-</section>
-
 <!-- ══ SLIDE 6: ЗАЧЕМ API ══ -->
 <section id="why">
   <div class="section-grid-bg"></div>
@@ -862,17 +828,17 @@
     </div>
   </div>
   <div class="contact-card reveal reveal-delay-3">
-    Семён
+    Челмакин Семён Александрович
     <span class="contact-sep">·</span>
     <a href="tel:+79193531716">+7 919 353-17-16</a>
     <span class="contact-sep">·</span>
-    <a href="mailto:look3betz@gmail.com">look3betz@gmail.com</a>
+    <a href="/cdn-cgi/l/email-protection#076b68686c346562737d47606a666e6b2964686a"><span class="__cf_email__" data-cfemail="066a69696d356463727c46616b676f6a2865696b">[email&#160;protected]</span></a>
     <span class="contact-sep">·</span>
     <a href="https://creatormusic.ru" target="_blank">creatormusic.ru</a>
   </div>
 </section>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   // ── Cursor
   const cursor = document.getElementById('cursor');
   const ring = document.getElementById('cursor-ring');
@@ -911,11 +877,4 @@
   }
 
   // ── Trigger hero reveals immediately
-  window.addEventListener('load', () => {
-    document.querySelectorAll('#hero .reveal').forEach(el => {
-      setTimeout(() => el.classList.add('visible'), 200 + parseInt(el.className.match(/delay-(\d)/)?.[1] || 0) * 120);
-    });
-  });
-</script>
-</body>
-</html>
+  window.addEventList
